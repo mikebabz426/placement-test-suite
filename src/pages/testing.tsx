@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { Container, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import TestSelection from "../components/TestSelection"
+import TestArea from "../components/Tests/TestArea"
 import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
@@ -39,9 +40,9 @@ const TestingPage = () => {
               Go Back
             </Button>
           </Link>
-          <h1>Test Area</h1>
+          <h1>This is the Testing Page</h1>
           {testType ? (
-            <Test type={testType} />
+            <TestArea type={testType} />
           ) : (
             <TestSelection setTest={setTestType} />
           )}
