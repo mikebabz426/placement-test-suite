@@ -2,13 +2,21 @@ import * as React from "react"
 import { useState } from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import { Container } from "@material-ui/core"
+import { Container, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import TestSelection from "../components/TestSelection"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "3rem",
     margin: "10rem auto",
+  },
+
+  link: {
+    textDecoration: "none",
+    color: "#333",
+    fontWeight: 600,
   },
 }))
 
@@ -21,8 +29,22 @@ const TestingPage = () => {
       <Layout logo={false}>
         <SEO title="Log In" />
         <Container maxWidth="lg" className={classes.root}>
-          Test Area
-          {testType ? <Test type={testType} /> : <TestSelection />}
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="contained"
+              style={{
+                background: "linear-gradient(45deg, #ff80ab 30%, #ff5252 90%)",
+              }}
+            >
+              Go Back
+            </Button>
+          </Link>
+          <h1>Test Area</h1>
+          {testType ? (
+            <Test type={testType} />
+          ) : (
+            <TestSelection setTest={setTestType} />
+          )}
         </Container>
       </Layout>
     </>

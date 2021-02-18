@@ -29,7 +29,9 @@ const Header = ({ logo }) => {
   const classes = useStyles()
 
   return (
-    <AppBar>
+    <AppBar
+      style={{ background: "linear-gradient(45deg, #ff80ab 30%, #ff5252 90%)" }}
+    >
       <Toolbar className={classes.root}>
         <Container maxWidth="lg" className={classes.navContainer}>
           <Box className={classes.container}>
