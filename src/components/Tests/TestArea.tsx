@@ -1,11 +1,12 @@
 import * as React from "react"
 import { Container } from "@material-ui/core"
+import PlacementTest from "./PlacementTest"
 
 const TestArea = ({ type }) => {
   return (
     <Container>
       <h1>This is the TestArea </h1>
-      <h4>You are taking the {type} test!</h4>
+      {type === "placement" ? <PlacementTest /> : null}
     </Container>
   )
 }

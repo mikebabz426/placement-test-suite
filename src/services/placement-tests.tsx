@@ -1,16 +1,16 @@
 export const PlacementTestOne = [
   {
-    question: "",
+    question: "This is some random question",
     options: ["opt 1", "opt 2", "opt 3", "opt 4"],
     answer: "opt 1",
   },
   {
-    question: "",
+    question: "This is the second random question",
     options: ["opt 1", "opt 2", "opt 3", "opt 4"],
     answer: "opt 1",
   },
   {
-    question: "",
+    question: "Third random question",
     options: ["opt 1", "opt 2", "opt 3", "opt 4"],
     answer: "opt 1",
   },
