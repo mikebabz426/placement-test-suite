@@ -1,10 +1,35 @@
 import * as React from "react"
-import { Box } from "@material-ui/core"
+import { Box, Button } from "@material-ui/core"
+import { Link } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
 
-const Result = () => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: "3rem",
+    margin: "10rem auto",
+  },
+
+  link: {
+    textDecoration: "none",
+    color: "#333",
+    fontWeight: 600,
+  },
+}))
+const Result = ({ score }) => {
+  const classes = useStyles()
   return (
     <Box>
-      <h1>Results go here</h1>
+      <h1>You scored: {score}%</h1>
+      <Link to="/" className={classes.link}>
+        <Button
+          variant="contained"
+          style={{
+            background: "linear-gradient(45deg, #ff80ab 30%, #ff5252 90%)",
+          }}
+        >
+          Back to Home
+        </Button>
+      </Link>
     </Box>
   )
 }

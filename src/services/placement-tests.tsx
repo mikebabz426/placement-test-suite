@@ -1,34 +1,34 @@
 export const PlacementTestOne = [
   {
-    question: "This is some random question",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "What is the ultimate dog breed?",
+    options: ["Yorkie", "German Shepherd", "Huskie", "Beagle"],
+    answer: "Yorkie",
   },
   {
-    question: "This is the second random question",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "How cool is a Yorkie?",
+    options: ["Cooler than cool", "Mostly Cool", "Above average", "Not at all"],
+    answer: "Cooler than cool",
   },
   {
-    question: "Third random question",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "How much maintenance does a Yorkie require?",
+    options: ["Plenty of it", "Not a lot", "More than a Kardashian", "Some"],
+    answer: "Not a lot",
   },
 ]
-export const PlacementTestTwo = [
+export const SectionTest = [
   {
-    question: "",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "Whats the best food on the planet",
+    options: ["Vegan", "Pizza", "Burgers", "Pasta"],
+    answer: "Pizza",
   },
   {
-    question: "",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "When can you indulge in a slice of pizza?",
+    options: ["Once a week", "Once a month", "Every day", "Avoid it"],
+    answer: "Every day",
   },
   {
-    question: "",
-    options: ["opt 1", "opt 2", "opt 3", "opt 4"],
-    answer: "opt 1",
+    question: "Who doesn't enjoy pizza?",
+    options: ["Losers", "Most people", "Everyone", "A handfull of people"],
+    answer: "Losers",
   },
 ]

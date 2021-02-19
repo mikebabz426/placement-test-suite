@@ -1,14 +1,20 @@
 import * as React from "react"
 import { useState } from "react"
 import { Container } from "@material-ui/core"
-import { PlacementTestOne } from "../../services/placement-tests"
+import { PlacementTestOne, SectionTest } from "../../services/placement-tests"
 import Question from "./Question"
+import Result from "./Result"
 
-const test = PlacementTestOne
-
-const PlacementTest = () => {
+const Test = ({ type }) => {
   const [counter, setCounter] = useState(0)
   const [correct, setCorrect] = useState(0)
+
+  let test
+  if (type === "placement") {
+    test = PlacementTestOne
+  } else {
+    test = SectionTest
+  }
 
   const getResults = () => {
     const results = Math.round((correct / test.length) * 100)
@@ -17,7 +23,12 @@ const PlacementTest = () => {
 
   return (
     <Container>
-      <h1>This is the Placement Test, question: {counter + 1}</h1>
+      {counter + 1 > test.length ? null : (
+        <h4>
+          question: {counter + 1} of {test.length}
+        </h4>
+      )}
+
       {counter < test.length ? (
         <Question
           ele={test[counter]}
@@ -29,10 +40,10 @@ const PlacementTest = () => {
           setCorrect={setCorrect}
         />
       ) : (
-        <h1>Test end: your score is {getResults()}%</h1>
+        <Result score={getResults()} />
       )}
     </Container>
   )
 }
 
-export default PlacementTest
+export default Test

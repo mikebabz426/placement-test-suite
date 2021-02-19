@@ -17,13 +17,23 @@ const TestSelection = ({ setTest }) => {
         Please select the test you wish to take.
       </Typography>
       <Button
+        style={{
+          background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 80%)",
+        }}
         onClick={() => setTest("placement")}
         variant="contained"
         className={classes.m}
       >
         Placement Test
       </Button>
-      <Button variant="contained" className={classes.m}>
+      <Button
+        style={{
+          background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
+        }}
+        onClick={() => setTest("section")}
+        variant="contained"
+        className={classes.m}
+      >
         Section Test
       </Button>
     </div>

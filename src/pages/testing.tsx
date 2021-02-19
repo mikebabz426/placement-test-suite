@@ -11,7 +11,7 @@ import { Link } from "gatsby"
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "3rem",
-    margin: "10rem auto",
+    margin: "auto",
   },
 
   link: {
@@ -30,16 +30,6 @@ const TestingPage = () => {
       <Layout logo={false}>
         <SEO title="Log In" />
         <Container maxWidth="lg" className={classes.root}>
-          <Link to="/" className={classes.link}>
-            <Button
-              variant="contained"
-              style={{
-                background: "linear-gradient(45deg, #ff80ab 30%, #ff5252 90%)",
-              }}
-            >
-              Go Back
-            </Button>
-          </Link>
           <h1>This is the Testing Page</h1>
           {testType ? (
             <TestArea type={testType} />
