@@ -4,6 +4,7 @@ import { Container } from "@material-ui/core"
 import { PlacementTestOne, SectionTest } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
+import { useNewUserContext } from "../../UserContext"
 
 const Test = ({ type }) => {
   const [counter, setCounter] = useState(0)
@@ -18,6 +19,7 @@ const Test = ({ type }) => {
 
   const getResults = () => {
     const results = Math.round((correct / test.length) * 100)
+
     return results
   }
 

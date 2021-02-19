@@ -68,7 +68,18 @@ const AdminPage = () => {
   const classes = useStyles()
   const { loading, error, data } = useQuery(GET_SCORES)
 
-  if (loading) return <CircularProgress />
+  if (loading)
+    return (
+      <Container
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </Container>
+    )
   if (error) return "Ooops, there was an Error!"
 
   const scores = data.test_scores
