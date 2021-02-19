@@ -24,7 +24,7 @@ const Result = ({ score }) => {
         <Button
           variant="contained"
           style={{
-            background: "linear-gradient(45deg, #ff80ab 30%, #ff5252 90%)",
+            background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
           }}
         >
           Back to Home
