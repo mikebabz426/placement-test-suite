@@ -42,9 +42,9 @@ const Question = ({
       <Typography variant="body2">
         {" "}
         {counter + 1 > test.length ? null : (
-          <h4>
+          <p>
             question: {counter + 1} of {test.length}
-          </h4>
+          </p>
         )}
       </Typography>
       <Typography variant="h5">{question}</Typography>

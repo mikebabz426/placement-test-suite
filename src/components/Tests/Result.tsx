@@ -3,19 +3,19 @@ import * as React from "react"
 import { Box, Button } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
-// import { gql, useMutation } from "@apollo/client"
-// import { useNewUserContext } from "../../UserContext"
-// import { navigate } from "gatsby"
+import { gql, useMutation } from "@apollo/client"
+import { useNewUserContext } from "../../UserContext"
+import { navigate } from "gatsby"
 
-// const ADD_COMPLETED = gql`
-//   mutation MyMutation($firstName: String!, $lastName: String!, $score: Int!) {
-//     insert_test_scores_one(
-//       object: { firstName: $driver, lastName: $truck, score: $trailer }
-//     ) {
-//       id
-//     }
-//   }
-// `
+const ADD_COMPLETED = gql`
+  mutation MyMutation($firstName: String!, $lastName: String!, $score: Int!) {
+    insert_test_scores_one(
+      object: { firstName: $firstName, lastName: $lastName, score: $score }
+    ) {
+      id
+    }
+  }
+`
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,21 +31,22 @@ const useStyles = makeStyles(theme => ({
 }))
 const Result = ({ score }) => {
   const classes = useStyles()
-  // const [addCompleted, { loading, data, error }] = useMutation(ADD_COMPLETED)
-  // const [user, setUser] = useNewUserContext()
+  const [addCompleted] = useMutation(ADD_COMPLETED)
+  const [user, setUser] = useNewUserContext()
+  // { loading, data, error }
 
-  // const handleClick = () => {
-  //   setUser(prevState => ({ ...prevState, score: score }))
-  //   console.log(user.firstName + user.lastName + score)
-  //   addCompleted({
-  //     variables: {
-  //       firstName: user.firstName,
-  //       lastName: user.lastName,
-  //       score: user.score,
-  //     },
-  //   })
-  //   navigate("/")
-  // }
+  const handleClick = () => {
+    setUser(prevState => ({ ...prevState, score: score }))
+    console.log(user.firstName + user.lastName + score)
+    addCompleted({
+      variables: {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        score: score,
+      },
+    })
+    navigate("/")
+  }
 
   return (
     <Box>
@@ -56,6 +57,7 @@ const Result = ({ score }) => {
           style={{
             background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
           }}
+          onClick={handleClick}
         >
           Back to Home
         </Button>
