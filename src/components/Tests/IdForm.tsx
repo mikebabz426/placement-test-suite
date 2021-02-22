@@ -1,9 +1,11 @@
 import * as React from "react"
-import { Container, Typography, Button, TextField } from "@material-ui/core"
+import { useState } from "react"
+import { Container, Typography, Button, OutlinedInput } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import * as Yup from "yup"
-import { Formik, Form, Field } from "formik"
+
 import { useNewUserContext } from "../../UserContext"
+
 //Form Validation:
 
 let userSchema = Yup.object().shape({
@@ -28,76 +30,53 @@ const useStyles = makeStyles(theme => ({
 
 const IdForm = () => {
   const classes = useStyles()
+  const [first, setFirst] = useState()
+  const [last, setLast] = useState()
   const [, setUser] = useNewUserContext()
+
+  const handleFirstNameChange = event => setFirst(event.target.value)
+  const handleLastNameChange = event => setLast(event.target.value)
+
+  const handleClick = () => {
+    setUser(prevSt => ({
+      ...prevSt,
+      firstName: first,
+      lastName: last,
+    }))
+  }
+
   return (
     <Container>
       <Typography variant="body1">
         Please enter your first and last name.
       </Typography>
-      <Formik
-        initialValues={{
-          firstName: "",
-          lastName: "",
-        }}
-        validationSchema={userSchema}
-        onSubmit={(values, actions) => {
-          setUser(user => ({
-            ...user,
-            firstName: values.firstName,
-            lastName: values.lastName,
-          }))
-          actions.resetForm()
-        }}
-      >
-        {({ errors, touched }) => {
-          return (
-            <Form name="userInfo">
-              <Field
-                className={classes.field}
-                name="firstName"
-                type="input"
-                variant="outlined"
-                margin="normal"
-                label="First Name"
-                required
-                fullWidth
-                as={TextField}
-              />
-              {errors.firstName && touched.firstName ? (
-                <Typography color="error">
-                  Please enter a valid first name.
-                </Typography>
-              ) : null}
-              <Field
-                className={classes.field}
-                name="lastName"
-                type="input"
-                variant="outlined"
-                margin="normal"
-                label="Last Name"
-                required
-                fullWidth
-                as={TextField}
-              />
-              {errors.lastName && touched.lastName ? (
-                <Typography color="error">
-                  Please enter a valid first name.
-                </Typography>
-              ) : null}
 
-              <Button
-                style={{ marginTop: "2rem" }}
-                type="submit"
-                fullWidth
-                variant="contained"
-                className={classes.btn}
-              >
-                Confirm
-              </Button>
-            </Form>
-          )
-        }}
-      </Formik>
+      <OutlinedInput
+        inputComponent="input"
+        placeholder="First Name"
+        fullWidth
+        value={first}
+        id="firstName"
+        onChange={handleFirstNameChange}
+      />
+      <OutlinedInput
+        inputComponent="input"
+        placeholder="Last Name"
+        fullWidth
+        value={last}
+        id="lastName"
+        onChange={handleLastNameChange}
+      />
+      <Button
+        style={{ marginTop: "2rem" }}
+        type="submit"
+        fullWidth
+        variant="contained"
+        className={classes.btn}
+        onClick={handleClick}
+      >
+        Confirm
+      </Button>
     </Container>
   )
 }

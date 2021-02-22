@@ -30,7 +30,6 @@ const Layout = ({ children, logo }) => {
   `)
 
   const source = data.background.childImageSharp.fluid
-  console.log(source)
 
   return (
     <GlobalThemeProvider>

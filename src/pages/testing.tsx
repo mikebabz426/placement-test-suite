@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Container, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import TestSelection from "../components/TestSelection"
-import TestArea from "../components/Tests/TestArea"
+import Test from "../components/Tests/Test"
 import Logo from "../components/Logo"
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +48,7 @@ const TestingPage = () => {
           <Logo />
           <Box className={classes.box}>
             {testType ? (
-              <TestArea type={testType} />
+              <Test type={testType} />
             ) : (
               <TestSelection setTest={setTestType} />
             )}

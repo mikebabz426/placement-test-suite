@@ -5,8 +5,10 @@ import { PlacementTestOne, SectionTest } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
 import { useNewUserContext } from "../../UserContext"
+import IdForm from "./IdForm"
 
 const Test = ({ type }) => {
+  const [user] = useNewUserContext()
   const [counter, setCounter] = useState(0)
   const [correct, setCorrect] = useState(0)
 
@@ -25,15 +27,12 @@ const Test = ({ type }) => {
 
   return (
     <Container>
-      {counter + 1 > test.length ? null : (
-        <h4>
-          question: {counter + 1} of {test.length}
-        </h4>
-      )}
-
-      {counter < test.length ? (
+      {user.firstName === "" && user.lastName === "" ? (
+        <IdForm />
+      ) : counter < test.length ? (
         <Question
           ele={test[counter]}
+          test={test}
           question={test[counter].question}
           options={test[counter].options}
           counter={counter}

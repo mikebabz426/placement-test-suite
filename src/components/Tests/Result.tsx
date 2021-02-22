@@ -1,19 +1,21 @@
 import * as React from "react"
+// import { useEffect } from "react"
 import { Box, Button } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
-import { gql, useMutation } from "@apollo/client"
-import { useNewUserContext } from "../../UserContext"
+// import { gql, useMutation } from "@apollo/client"
+// import { useNewUserContext } from "../../UserContext"
+// import { navigate } from "gatsby"
 
-const ADD_COMPLETED = gql`
-  mutation MyMutation($firstName: String!, $lastName: String!, $score: Int!) {
-    insert_test_scores_one(
-      object: { firstName: $driver, lastName: $truck, score: $trailer }
-    ) {
-      id
-    }
-  }
-`
+// const ADD_COMPLETED = gql`
+//   mutation MyMutation($firstName: String!, $lastName: String!, $score: Int!) {
+//     insert_test_scores_one(
+//       object: { firstName: $driver, lastName: $truck, score: $trailer }
+//     ) {
+//       id
+//     }
+//   }
+// `
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,19 +30,22 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 const Result = ({ score }) => {
-  const [addCompleted] = useMutation(ADD_COMPLETED)
   const classes = useStyles()
-  const [user, setUser] = useNewUserContext()
+  // const [addCompleted, { loading, data, error }] = useMutation(ADD_COMPLETED)
+  // const [user, setUser] = useNewUserContext()
 
-  setUser(prevState => ({ ...prevState, score: score }))
-
-  addCompleted({
-    variables: {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      score: user.score,
-    },
-  })
+  // const handleClick = () => {
+  //   setUser(prevState => ({ ...prevState, score: score }))
+  //   console.log(user.firstName + user.lastName + score)
+  //   addCompleted({
+  //     variables: {
+  //       firstName: user.firstName,
+  //       lastName: user.lastName,
+  //       score: user.score,
+  //     },
+  //   })
+  //   navigate("/")
+  // }
 
   return (
     <Box>

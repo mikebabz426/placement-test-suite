@@ -12,6 +12,7 @@ import {
 
 const Question = ({
   ele,
+  test,
   question,
   options,
   counter,
@@ -38,6 +39,14 @@ const Question = ({
 
   return (
     <Box>
+      <Typography variant="body2">
+        {" "}
+        {counter + 1 > test.length ? null : (
+          <h4>
+            question: {counter + 1} of {test.length}
+          </h4>
+        )}
+      </Typography>
       <Typography variant="h5">{question}</Typography>
       <FormControl component="fieldset">
         <RadioGroup

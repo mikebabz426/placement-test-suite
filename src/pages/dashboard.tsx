@@ -96,7 +96,7 @@ const AdminPage = () => {
               <Typography variant="h4">Test Score Review</Typography>
             </Box>
             {scores.map(score => (
-              <Score {...score} />
+              <Score key={score.id} {...score} />
             ))}
           </Box>
         </Container>
