@@ -1,9 +1,8 @@
 import * as React from "react"
-import { useState } from "react"
 import { Container, Typography, Button, OutlinedInput } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import { Formik } from "formik"
 import * as Yup from "yup"
-
 import { useNewUserContext } from "../../UserContext"
 
 //Form Validation:
@@ -30,53 +29,68 @@ const useStyles = makeStyles(theme => ({
 
 const IdForm = () => {
   const classes = useStyles()
-  const [first, setFirst] = useState()
-  const [last, setLast] = useState()
   const [, setUser] = useNewUserContext()
-
-  const handleFirstNameChange = event => setFirst(event.target.value)
-  const handleLastNameChange = event => setLast(event.target.value)
-
-  const handleClick = () => {
-    setUser(prevSt => ({
-      ...prevSt,
-      firstName: first,
-      lastName: last,
-    }))
-  }
 
   return (
     <Container>
       <Typography variant="body1">
         Please enter your first and last name.
       </Typography>
-
-      <OutlinedInput
-        inputComponent="input"
-        placeholder="First Name"
-        fullWidth
-        value={first}
-        id="firstName"
-        onChange={handleFirstNameChange}
-      />
-      <OutlinedInput
-        inputComponent="input"
-        placeholder="Last Name"
-        fullWidth
-        value={last}
-        id="lastName"
-        onChange={handleLastNameChange}
-      />
-      <Button
-        style={{ marginTop: "2rem" }}
-        type="submit"
-        fullWidth
-        variant="contained"
-        className={classes.btn}
-        onClick={handleClick}
+      <Formik
+        initialValues={{ firstName: "", lastName: "" }}
+        validationSchema={userSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(true)
+          setUser(prevSt => ({
+            ...prevSt,
+            firstName: values.firstName,
+            lastName: values.lastName,
+          }))
+        }}
       >
-        Confirm
-      </Button>
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <form onSubmit={handleSubmit}>
+            <OutlinedInput
+              inputComponent="input"
+              placeholder="First Name"
+              fullWidth
+              value={values.firstName}
+              id="firstName"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.firstName && touched.firstName && errors.firstName}
+            <OutlinedInput
+              inputComponent="input"
+              placeholder="Last Name"
+              fullWidth
+              value={values.lastName}
+              id="lastName"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.lastName && touched.lastName && errors.lastName}
+            <Button
+              style={{ marginTop: "2rem" }}
+              type="submit"
+              fullWidth
+              variant="contained"
+              className={classes.btn}
+              disabled={isSubmitting}
+            >
+              Confirm
+            </Button>
+          </form>
+        )}
+      </Formik>
     </Container>
   )
 }
