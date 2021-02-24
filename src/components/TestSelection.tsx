@@ -36,6 +36,16 @@ const TestSelection = ({ setTest }) => {
       >
         Section Test
       </Button>
+      <Button
+        style={{
+          background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
+        }}
+        onClick={() => setTest("quick-placement")}
+        variant="contained"
+        className={classes.m}
+      >
+        Quick Placement
+      </Button>
     </div>
   )
 }

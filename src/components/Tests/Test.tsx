@@ -1,7 +1,11 @@
 import * as React from "react"
 import { useState } from "react"
 import { Container } from "@material-ui/core"
-import { PlacementTestOne, SectionTest } from "../../services/placement-tests"
+import {
+  PlacementTestOne,
+  SectionTest,
+  QuickPlacement,
+} from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
 import { useNewUserContext } from "../../UserContext"
@@ -15,8 +19,10 @@ const Test = ({ type }) => {
   let test
   if (type === "placement") {
     test = PlacementTestOne
+  } else if (type === "quick-placement") {
+    test = QuickPlacement
   } else {
-    test = SectionTest
+    test = "section"
   }
 
   const getResults = () => {
