@@ -27,8 +27,9 @@ const Test = ({ type }) => {
 
   return (
     <Container>
-      {!user.firstName && !user.lastName && <IdForm />}
-      {counter < test.length ? (
+      {!user.firstName && !user.lastName ? (
+        <IdForm />
+      ) : counter < test.length ? (
         <Question
           ele={test[counter]}
           test={test}

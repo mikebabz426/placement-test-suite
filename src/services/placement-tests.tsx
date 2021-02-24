@@ -1,3 +1,5 @@
+const blank = "__________"
+
 export const PlacementTestOne = [
   {
     question: "What is the ultimate dog breed?",
@@ -30,5 +32,28 @@ export const SectionTest = [
     question: "Who doesn't enjoy pizza?",
     options: ["Losers", "Most people", "Everyone", "A handfull of people"],
     answer: "Losers",
+  },
+]
+
+export const QuickPlacement = [
+  {
+    question: `I ${blank} from France.`,
+    options: ["a)  is", "b)  are", "c)  am", "d)  be"],
+    answer: "c)  am",
+  },
+  {
+    question: `This is my friend. ${blank} name is Peter.`,
+    options: ["a)  Her", "b)  Our", "c)  Yours", "d)  His"],
+    answer: "d)  His",
+  },
+  {
+    question: `Mike is ${blank}`,
+    options: [
+      "a)  my sister's friend.",
+      "b)  friend my sister.",
+      "c)  friend from my sister.",
+      "d)  my sister friend's.",
+    ],
+    answer: "a)  my sister's friend.",
   },
 ]
