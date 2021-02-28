@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useState } from "react"
 import {
   Box,
   Typography,
@@ -9,6 +8,15 @@ import {
   FormControlLabel,
   Button,
 } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles(theme => ({
+  box: {
+    backgroundColor: "#f6f6f6",
+    padding: "3rem",
+    borderRadius: "10px",
+  },
+}))
 
 const Question = ({
   ele,
@@ -21,6 +29,7 @@ const Question = ({
   setCorrect,
 }) => {
   const [value, setValue] = React.useState(null)
+  const classes = useStyles()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value)
@@ -38,7 +47,7 @@ const Question = ({
   }
 
   return (
-    <Box>
+    <Box className={classes.box}>
       <Typography variant="body2">
         {" "}
         {counter + 1 > test.length ? null : (

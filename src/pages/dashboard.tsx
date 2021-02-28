@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 import { Container, Box, Typography, CircularProgress } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Logo from "../components/Logo"
@@ -16,7 +17,6 @@ const useStyles = makeStyles(theme => ({
   box: {
     marginTop: 30,
     minHeight: 300,
-    maxHeight: 500,
     background: "rgba( 255, 255, 255, 0.45)",
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
     backdropFilter: " blur( 10.0px )",
@@ -51,6 +51,10 @@ const useStyles = makeStyles(theme => ({
   },
   scoreField: {
     margin: ".5rem .5rem .5rem 3rem",
+  },
+  link: {
+    textDecoration: "none",
+    color: "#333",
   },
 }))
 
@@ -89,7 +93,9 @@ const AdminPage = () => {
       <Layout logo={false}>
         <SEO title="Admin Dashboard" />
         <Container maxWidth="lg" className={classes.root}>
-          <Logo />
+          <Link to="/" className={classes.link}>
+            <Logo />
+          </Link>
           <Box className={classes.box}>
             <Box className={classes.item}>
               <Review className={classes.icon} />

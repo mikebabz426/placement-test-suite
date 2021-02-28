@@ -2,6 +2,7 @@ import * as React from "react"
 import { useState } from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 import { Container, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import TestSelection from "../components/TestSelection"
@@ -34,6 +35,25 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "space-evenly",
   },
+  testBox: {
+    marginTop: 80,
+    minHeight: 300,
+    maxHeight: 500,
+    padding: 20,
+    background: "rgba( 255, 255, 255, 0.45)",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: " blur( 10.0px )",
+    WebkitBackdropFilter: "blur(10.0px)",
+    borderRadius: "10px",
+    border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  homeLink: {
+    textDecoration: "none",
+    color: "#333",
+  },
 }))
 
 const TestingPage = () => {
@@ -45,14 +65,18 @@ const TestingPage = () => {
       <Layout logo={false}>
         <SEO title="Log In" />
         <Container maxWidth="lg" className={classes.root}>
-          <Logo />
-          <Box className={classes.box}>
-            {testType ? (
+          <Link to="/" className={classes.homeLink}>
+            <Logo />
+          </Link>
+          {testType ? (
+            <Box className={classes.testBox}>
               <Test type={testType} />
-            ) : (
+            </Box>
+          ) : (
+            <Box className={classes.box}>
               <TestSelection setTest={setTestType} />
-            )}
-          </Box>
+            </Box>
+          )}
         </Container>
       </Layout>
     </>

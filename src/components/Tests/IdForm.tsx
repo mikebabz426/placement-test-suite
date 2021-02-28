@@ -16,14 +16,26 @@ let userSchema = Yup.object().shape({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "3rem",
+    padding: "1rem",
     margin: "auto",
   },
+  head: {
+    marginBottom: "3rem",
+  },
+  form: {
+    backgroundColor: "#f4f4f4",
+    padding: "3rem",
+    borderRadius: "10px",
+  },
+
   field: {
     color: theme.palette.grey[50],
   },
   btn: {
     background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
+  },
+  input: {
+    margin: ".5rem auto",
   },
 }))
 
@@ -33,8 +45,8 @@ const IdForm = () => {
 
   return (
     <Container>
-      <Typography variant="body1">
-        Please enter your first and last name.
+      <Typography variant="h6" align="center" className={classes.head}>
+        Before taking the test, please enter your first and last name.
       </Typography>
       <Formik
         initialValues={{ firstName: "", lastName: "" }}
@@ -57,8 +69,9 @@ const IdForm = () => {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={classes.form}>
             <OutlinedInput
+              className={classes.input}
               inputComponent="input"
               placeholder="First Name"
               fullWidth
@@ -67,8 +80,13 @@ const IdForm = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.firstName && touched.firstName && errors.firstName}
+            {errors.firstName && touched.firstName ? (
+              <Typography color="error">
+                Please enter a valid first name!
+              </Typography>
+            ) : null}
             <OutlinedInput
+              className={classes.input}
               inputComponent="input"
               placeholder="Last Name"
               fullWidth
@@ -77,7 +95,11 @@ const IdForm = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.lastName && touched.lastName && errors.lastName}
+            {errors.lastName && touched.lastName ? (
+              <Typography color="error">
+                Please enter a valid last name!
+              </Typography>
+            ) : null}
             <Button
               style={{ marginTop: "2rem" }}
               type="submit"
