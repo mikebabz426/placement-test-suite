@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Logo from "../components/Logo"
 import Review from "../assets/review.svg"
 import { gql, useQuery } from "@apollo/client"
-import Score from "../components/Dashboard/Score"
+import ScoreTable from "../components/Dashboard/ScoreTable"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -101,9 +101,7 @@ const AdminPage = () => {
               <Review className={classes.icon} />
               <Typography variant="h4">Test Score Review</Typography>
             </Box>
-            {scores.map(score => (
-              <Score key={score.id} {...score} />
-            ))}
+            <ScoreTable scores={scores} />
           </Box>
         </Container>
       </Layout>

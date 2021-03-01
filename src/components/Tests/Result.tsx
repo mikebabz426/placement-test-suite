@@ -1,6 +1,5 @@
 import * as React from "react"
-// import { useEffect } from "react"
-import { Box, Button } from "@material-ui/core"
+import { Box, Button, Typography } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import { gql, useMutation } from "@apollo/client"
@@ -28,12 +27,21 @@ const useStyles = makeStyles(theme => ({
     color: "#333",
     fontWeight: 600,
   },
+  msg: {
+    marginBottom: "1.5rem",
+    textAlign: "center",
+  },
+  box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
 }))
 const Result = ({ score }) => {
   const classes = useStyles()
   const [addCompleted] = useMutation(ADD_COMPLETED)
   const [user, setUser] = useNewUserContext()
-  // { loading, data, error }
 
   const handleClick = () => {
     setUser(prevState => ({ ...prevState, score: score }))
@@ -49,8 +57,10 @@ const Result = ({ score }) => {
   }
 
   return (
-    <Box>
-      <h1>You scored: {score}%</h1>
+    <Box className={classes.box}>
+      <Typography variant="h3" className={classes.msg}>
+        You scored: {score}%
+      </Typography>
       <Link to="/" className={classes.link}>
         <Button
           variant="contained"

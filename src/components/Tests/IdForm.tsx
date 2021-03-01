@@ -45,9 +45,6 @@ const IdForm = () => {
 
   return (
     <Container>
-      <Typography variant="h6" align="center" className={classes.head}>
-        Before taking the test, please enter your first and last name.
-      </Typography>
       <Formik
         initialValues={{ firstName: "", lastName: "" }}
         validationSchema={userSchema}
@@ -70,6 +67,9 @@ const IdForm = () => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit} className={classes.form}>
+            <Typography variant="h6" align="center" className={classes.head}>
+              Before taking the test, please enter your first and last name.
+            </Typography>
             <OutlinedInput
               className={classes.input}
               inputComponent="input"
