@@ -1,5 +1,5 @@
 import React from "react"
-import { CssBaseline, Container } from "@material-ui/core"
+import { CssBaseline } from "@material-ui/core"
 import PropTypes from "prop-types"
 import "@fontsource/roboto"
 import GlobalThemeProvider from "../GlobalThemeProvider"
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     margin: 0,
     width: "100vw",
-    height: "100vh",
+    minHeight: "100vh",
   },
 }))
 const Layout = ({ children, logo }) => {

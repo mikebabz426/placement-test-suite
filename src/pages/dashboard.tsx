@@ -2,7 +2,13 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
-import { Container, Box, Typography, CircularProgress } from "@material-ui/core"
+import {
+  Container,
+  Box,
+  Typography,
+  CircularProgress,
+  Fade,
+} from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Logo from "../components/Logo"
 import Review from "../assets/review.svg"
@@ -81,7 +87,7 @@ const AdminPage = () => {
           justifyContent: "center",
         }}
       >
-        <CircularProgress />
+        <CircularProgress color="primary" size={60} thickness={4} />
       </Container>
     )
   if (error) return "Ooops, there was an Error!"
@@ -92,18 +98,20 @@ const AdminPage = () => {
     <>
       <Layout logo={false}>
         <SEO title="Admin Dashboard" />
-        <Container maxWidth="lg" className={classes.root}>
-          <Link to="/" className={classes.link}>
-            <Logo />
-          </Link>
-          <Box className={classes.box}>
-            <Box className={classes.item}>
-              <Review className={classes.icon} />
-              <Typography variant="h4">Test Score Review</Typography>
+        <Fade in timeout={700}>
+          <Container maxWidth="lg" className={classes.root}>
+            <Link to="/" className={classes.link}>
+              <Logo />
+            </Link>
+            <Box className={classes.box}>
+              <Box className={classes.item}>
+                <Review className={classes.icon} />
+                <Typography variant="h4">Test Score Review</Typography>
+              </Box>
+              <ScoreTable scores={scores} />
             </Box>
-            <ScoreTable scores={scores} />
-          </Box>
-        </Container>
+          </Container>
+        </Fade>
       </Layout>
     </>
   )

@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import { Container, Button, Box } from "@material-ui/core"
+import { Container, Button, Box, Fade } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link } from "gatsby"
 import Student from "../assets/student.svg"
@@ -55,39 +55,41 @@ const IndexPage = () => {
     <>
       <Layout logo={false}>
         <SEO title="Log In" />
-        <Container maxWidth="lg" className={classes.root}>
-          <Logo />
-          <Box className={classes.box}>
-            <Box className={classes.item}>
-              <Teacher className={classes.student} />
-              <Link to="dashboard" className={classes.link}>
-                <Button
-                  variant="contained"
-                  style={{
-                    background:
-                      "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
-                  }}
-                >
-                  Admin Dashboard
-                </Button>
-              </Link>
+        <Fade in timeout={700}>
+          <Container maxWidth="lg" className={classes.root}>
+            <Logo />
+            <Box className={classes.box}>
+              <Box className={classes.item}>
+                <Teacher className={classes.student} />
+                <Link to="dashboard" className={classes.link}>
+                  <Button
+                    variant="contained"
+                    style={{
+                      background:
+                        "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
+                    }}
+                  >
+                    Admin Dashboard
+                  </Button>
+                </Link>
+              </Box>
+              <Box className={classes.item}>
+                <Student className={classes.student} />
+                <Link to="testing" className={classes.link}>
+                  <Button
+                    variant="contained"
+                    style={{
+                      background:
+                        "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
+                    }}
+                  >
+                    Student Testing
+                  </Button>
+                </Link>
+              </Box>
             </Box>
-            <Box className={classes.item}>
-              <Student className={classes.student} />
-              <Link to="testing" className={classes.link}>
-                <Button
-                  variant="contained"
-                  style={{
-                    background:
-                      "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
-                  }}
-                >
-                  Student Testing
-                </Button>
-              </Link>
-            </Box>
-          </Box>
-        </Container>
+          </Container>
+        </Fade>
       </Layout>
     </>
   )

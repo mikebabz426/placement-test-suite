@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Box, Button, Typography } from "@material-ui/core"
+import { Box, Button, Typography, Grow } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import { gql, useMutation } from "@apollo/client"
@@ -45,7 +45,6 @@ const Result = ({ score }) => {
 
   const handleClick = () => {
     setUser(prevState => ({ ...prevState, score: score }))
-    console.log(user.firstName + user.lastName + score)
     addCompleted({
       variables: {
         firstName: user.firstName,
@@ -57,22 +56,24 @@ const Result = ({ score }) => {
   }
 
   return (
-    <Box className={classes.box}>
-      <Typography variant="h3" className={classes.msg}>
-        You scored: {score}%
-      </Typography>
-      <Link to="/" className={classes.link}>
-        <Button
-          variant="contained"
-          style={{
-            background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
-          }}
-          onClick={handleClick}
-        >
-          Back to Home
-        </Button>
-      </Link>
-    </Box>
+    <Grow in timeout={1500}>
+      <Box className={classes.box}>
+        <Typography variant="h3" className={classes.msg}>
+          You scored: {score}%
+        </Typography>
+        <Link to="/" className={classes.link}>
+          <Button
+            variant="contained"
+            style={{
+              background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
+            }}
+            onClick={handleClick}
+          >
+            Back to Home
+          </Button>
+        </Link>
+      </Box>
+    </Grow>
   )
 }
 

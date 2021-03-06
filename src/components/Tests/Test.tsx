@@ -1,14 +1,13 @@
 import * as React from "react"
 import { useState } from "react"
-import { Container } from "@material-ui/core"
+import { useNewUserContext } from "../../UserContext"
+import { Container, Fade } from "@material-ui/core"
 import {
   PlacementTestOne,
-  SectionTest,
   QuickPlacement,
 } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
-import { useNewUserContext } from "../../UserContext"
 import IdForm from "./IdForm"
 
 const Test = ({ type }) => {
@@ -32,24 +31,26 @@ const Test = ({ type }) => {
   }
 
   return (
-    <Container>
-      {!user.firstName && !user.lastName ? (
-        <IdForm />
-      ) : counter < test.length ? (
-        <Question
-          ele={test[counter]}
-          test={test}
-          question={test[counter].question}
-          options={test[counter].options}
-          counter={counter}
-          setCounter={setCounter}
-          correct={correct}
-          setCorrect={setCorrect}
-        />
-      ) : (
-        <Result score={getResults()} />
-      )}
-    </Container>
+    <Fade timeout={1000} in>
+      <Container>
+        {!user.firstName && !user.lastName ? (
+          <IdForm />
+        ) : counter < test.length ? (
+          <Question
+            ele={test[counter]}
+            test={test}
+            question={test[counter].question}
+            options={test[counter].options}
+            counter={counter}
+            setCounter={setCounter}
+            correct={correct}
+            setCorrect={setCorrect}
+          />
+        ) : (
+          <Result score={getResults()} />
+        )}
+      </Container>
+    </Fade>
   )
 }
 
