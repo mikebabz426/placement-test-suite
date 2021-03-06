@@ -78,7 +78,7 @@ export const QuickPlacement = [
   },
   {
     question: `Sorry, I can't talk. I ${blank} right now.`,
-    options: ["a)  driving", "b)  'm driving'", "c)  drives", "d)  drive"],
+    options: ["a)  driving", "b)  'm driving", "c)  drives", "d)  drive"],
     answer: "b)  'm driving",
   },
   {
@@ -158,7 +158,7 @@ export const QuickPlacement = [
   },
   {
     question: `We've been friends ${blank} many years.`,
-    options: ["a)  since", "b)  from", "c)  during", "d) for"],
+    options: ["a)  since", "b)  from", "c)  during", "d)  for"],
     answer: "d)  for",
   },
   {
