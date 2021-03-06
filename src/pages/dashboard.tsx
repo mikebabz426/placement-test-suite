@@ -71,6 +71,8 @@ const GET_SCORES = gql`
       firstName
       lastName
       score
+      testType
+      level
     }
   }
 `

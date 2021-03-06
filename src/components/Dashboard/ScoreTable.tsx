@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 600,
     minWidth: 350,
   },
+  cell: {
+    fontStyle: "italic",
+  },
 }))
 
 const ScoreTable = ({ scores }) => {
@@ -63,16 +66,22 @@ const ScoreTable = ({ scores }) => {
           <TableRow>
             <StyledTableCell>First Name</StyledTableCell>
             <StyledTableCell>Last Name</StyledTableCell>
+            <StyledTableCell>Test Type</StyledTableCell>
+            <StyledTableCell>Level</StyledTableCell>
             <StyledTableCell align="right">Score (%)</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {scores.map(score => (
             <StyledTableRow key={score.id}>
-              <StyledTableCell component="th" scope="row">
-                {score.firstName}
-              </StyledTableCell>
+              <StyledTableCell>{score.firstName}</StyledTableCell>
               <StyledTableCell>{score.lastName}</StyledTableCell>
+              <StyledTableCell className={classes.cell}>
+                {score.testType}
+              </StyledTableCell>
+              <StyledTableCell className={classes.cell}>
+                {score.level}
+              </StyledTableCell>
               <StyledTableCell align="right">{score.score}</StyledTableCell>
             </StyledTableRow>
           ))}

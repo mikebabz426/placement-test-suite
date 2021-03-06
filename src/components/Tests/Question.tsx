@@ -60,9 +60,9 @@ const Question = ({
         <Typography variant="body2">
           {" "}
           {counter + 1 > test.length ? null : (
-            <p>
+            <span>
               question: {counter + 1} of {test.length}
-            </p>
+            </span>
           )}
         </Typography>
         <Typography className={classes.question} variant="h5">

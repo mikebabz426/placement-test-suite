@@ -47,7 +47,7 @@ const Test = ({ type }) => {
             setCorrect={setCorrect}
           />
         ) : (
-          <Result score={getResults()} />
+          <Result score={getResults()} correct={correct} type={type} />
         )}
       </Container>
     </Fade>
