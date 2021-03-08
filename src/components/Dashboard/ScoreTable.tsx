@@ -74,15 +74,21 @@ const ScoreTable = ({ scores }) => {
         <TableBody>
           {scores.map(score => (
             <StyledTableRow key={score.id}>
-              <StyledTableCell>{score.firstName}</StyledTableCell>
-              <StyledTableCell>{score.lastName}</StyledTableCell>
+              <StyledTableCell style={{ fontWeight: 600 }}>
+                {score.firstName}
+              </StyledTableCell>
+              <StyledTableCell style={{ fontWeight: 600 }}>
+                {score.lastName}
+              </StyledTableCell>
               <StyledTableCell className={classes.cell}>
                 {score.testType}
               </StyledTableCell>
               <StyledTableCell className={classes.cell}>
                 {score.level}
               </StyledTableCell>
-              <StyledTableCell align="right">{score.score}</StyledTableCell>
+              <StyledTableCell style={{ fontWeight: "bold" }} align="right">
+                {score.score}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

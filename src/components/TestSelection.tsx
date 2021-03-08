@@ -30,7 +30,7 @@ const TestSelection = ({ setTest }) => {
             style={{
               background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 80%)",
             }}
-            onClick={() => setTest("placement")}
+            onClick={() => setTest("Placement")}
             variant="contained"
             className={classes.m}
           >
@@ -40,7 +40,7 @@ const TestSelection = ({ setTest }) => {
             style={{
               background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
             }}
-            onClick={() => setTest("section")}
+            onClick={() => setTest("Section")}
             variant="contained"
             className={classes.m}
           >
@@ -50,7 +50,7 @@ const TestSelection = ({ setTest }) => {
             style={{
               background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
             }}
-            onClick={() => setTest("quick-placement")}
+            onClick={() => setTest("Quick-Placement")}
             variant="contained"
             className={classes.m}
           >

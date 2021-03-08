@@ -16,12 +16,12 @@ const Test = ({ type }) => {
   const [correct, setCorrect] = useState(0)
 
   let test
-  if (type === "placement") {
+  if (type === "Placement") {
     test = PlacementTestOne
-  } else if (type === "quick-placement") {
+  } else if (type === "Quick-Placement") {
     test = QuickPlacement
   } else {
-    test = "section"
+    test = "Section"
   }
 
   const getResults = () => {

@@ -84,12 +84,13 @@ const Question = ({
               />
             ))}
           </RadioGroup>
+
           <Button
             className={classes.btn}
             variant="contained"
             onClick={() => nextQuestion(ele)}
           >
-            Next
+            {counter + 1 === test.length ? "Submit for Review" : "Next"}
           </Button>
         </FormControl>
       </Box>

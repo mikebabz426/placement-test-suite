@@ -8,11 +8,12 @@ import {
   Typography,
   CircularProgress,
   Fade,
+  Button,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Logo from "../components/Logo"
 import Review from "../assets/review.svg"
-import { gql, useQuery } from "@apollo/client"
+import { gql, useQuery, useMutation } from "@apollo/client"
 import ScoreTable from "../components/Dashboard/ScoreTable"
 
 const useStyles = makeStyles(theme => ({
@@ -64,6 +65,14 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const CLEAR_TABLE = gql`
+  mutation MyMutation {
+    delete_test_scores(where: {}) {
+      affected_rows
+    }
+  }
+`
+
 const GET_SCORES = gql`
   query test_scores {
     test_scores {
@@ -77,8 +86,9 @@ const GET_SCORES = gql`
   }
 `
 const AdminPage = () => {
+  const { loading, error, data, refetch } = useQuery(GET_SCORES)
   const classes = useStyles()
-  const { loading, error, data } = useQuery(GET_SCORES)
+  const [clearTable] = useMutation(CLEAR_TABLE)
 
   if (loading)
     return (
@@ -93,6 +103,11 @@ const AdminPage = () => {
       </Container>
     )
   if (error) return "Ooops, there was an Error!"
+
+  const handleClick = () => {
+    clearTable()
+    refetch()
+  }
 
   const scores = data.test_scores
 
@@ -111,6 +126,17 @@ const AdminPage = () => {
                 <Typography variant="h4">Test Score Review</Typography>
               </Box>
               <ScoreTable scores={scores} />
+              <Button
+                variant="contained"
+                style={{
+                  background:
+                    "linear-gradient(45deg, #f9c4ff 20%, #f289fe 80%)",
+                  margin: "2rem",
+                }}
+                onClick={handleClick}
+              >
+                Clear Table
+              </Button>
             </Box>
           </Container>
         </Fade>
