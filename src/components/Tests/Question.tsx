@@ -10,6 +10,31 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Fade from "@material-ui/core/Fade"
+import { gql, useMutation } from "@apollo/client"
+import { useNewUserContext } from "../../UserContext"
+import { getLevel } from "../../services/helpers"
+
+const ADD_COMPLETED = gql`
+  mutation MyMutation(
+    $firstName: String!
+    $lastName: String!
+    $score: Int!
+    $type: String!
+    $level: String!
+  ) {
+    insert_test_scores_one(
+      object: {
+        firstName: $firstName
+        lastName: $lastName
+        score: $score
+        testType: $type
+        level: $level
+      }
+    ) {
+      id
+    }
+  }
+`
 
 const useStyles = makeStyles(theme => ({
   box: {
@@ -23,6 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   question: {
     marginBottom: "1.5rem",
+    marginTop: "1.5rem",
   },
 }))
 
@@ -35,8 +61,12 @@ const Question = ({
   setCounter,
   correct,
   setCorrect,
+  score,
+  type,
 }) => {
   const [value, setValue] = React.useState(null)
+  const [addCompleted] = useMutation(ADD_COMPLETED)
+  const [user, setUser] = useNewUserContext()
   const classes = useStyles()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,11 +74,28 @@ const Question = ({
   }
 
   const nextQuestion = que => {
-    if (value === que.answer) {
-      setCorrect(correct + 1)
+    if (counter + 1 === test.length) {
+      if (value === que.answer) {
+        setCorrect(correct + 1)
+      }
+      setUser(prevState => ({ ...prevState, score: score }))
+      const level = getLevel(correct)
+
+      addCompleted({
+        variables: {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          score: score,
+          type: type,
+          level: level,
+        },
+      })
       setCounter(counter + 1)
       setValue(null)
     } else {
+      if (value === que.answer) {
+        setCorrect(correct + 1)
+      }
       setCounter(counter + 1)
       setValue(null)
     }

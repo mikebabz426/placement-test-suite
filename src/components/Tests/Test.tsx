@@ -22,7 +22,7 @@ const Test = ({ type }) => {
   } else if (type === "Advanced-Placement") {
     test = AdvancedPlacement
   } else {
-    test = "Beginner"
+    test = Beginner
   }
 
   const getResults = () => {
@@ -46,9 +46,11 @@ const Test = ({ type }) => {
             setCounter={setCounter}
             correct={correct}
             setCorrect={setCorrect}
+            score={getResults()}
+            type={type}
           />
         ) : (
-          <Result score={getResults()} correct={correct} type={type} />
+          <Result score={getResults()} />
         )}
       </Container>
     </Fade>
