@@ -4,7 +4,8 @@ import { useNewUserContext } from "../../UserContext"
 import { Container, Fade } from "@material-ui/core"
 import {
   PlacementTestOne,
-  QuickPlacement,
+  Beginner,
+  AdvancedPlacement,
 } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
@@ -18,10 +19,10 @@ const Test = ({ type }) => {
   let test
   if (type === "Placement") {
     test = PlacementTestOne
-  } else if (type === "Quick-Placement") {
-    test = QuickPlacement
+  } else if (type === "Advanced-Placement") {
+    test = AdvancedPlacement
   } else {
-    test = "Section"
+    test = "Beginner"
   }
 
   const getResults = () => {

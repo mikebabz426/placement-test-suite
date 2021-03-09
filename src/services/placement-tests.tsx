@@ -17,25 +17,185 @@ export const PlacementTestOne = [
     answer: "Not a lot",
   },
 ]
-export const SectionTest = [
+export const Beginner = [
   {
-    question: "Whats the best food on the planet",
-    options: ["Vegan", "Pizza", "Burgers", "Pasta"],
-    answer: "Pizza",
+    question: `Mitko ${blank} from Bulgaria.`,
+    options: ["a)  are", "b)  is", "c)  aren't", "d)  am"],
+    answer: "b)  is",
   },
   {
-    question: "When can you indulge in a slice of pizza?",
-    options: ["Once a week", "Once a month", "Every day", "Avoid it"],
-    answer: "Every day",
+    question: `Federico and Sofia ${blank} Italian.`,
+    options: ["a)  isn't", "b)  is", "c)  am", "d)  are"],
+    answer: "d)  are",
   },
   {
-    question: "Who doesn't enjoy pizza?",
-    options: ["Losers", "Most people", "Everyone", "A handfull of people"],
-    answer: "Losers",
+    question: `My parents have got four ${blank}.`,
+    options: ["a)  children", "b)  childrens", "c)  childs", "d)  child"],
+    answer: "a)  children",
+  },
+  {
+    question: `There's ${blank} book on the table.`,
+    options: ["a)  five", "b)  some", "c)  a", "d)  an"],
+    answer: "c)  a",
+  },
+  {
+    question: `My sister's fifteen. ${blank} called Anna.`,
+    options: ["a)  She's", "b)  You're", "c)  It's", "d)  He's"],
+    answer: "a)  She's",
+  },
+  {
+    question: `I've got two brothers. ${blank} bedroom is very big.`,
+    options: ["a)  Her", "b)  Their", "c)  His", "d)  Your"],
+    answer: "b)  Their",
+  },
+  {
+    question: `${blank} are you from?`,
+    options: ["a)  What", "b)  When", "c)  Where", "d)  Who"],
+    answer: "c)  Where",
+  },
+  {
+    question: `This is my pen. ${blank} are your pens on the table.`,
+    options: ["a)  This", "b)  Those", "c)  That", "d)  It"],
+    answer: "b)  Those",
+  },
+  {
+    question: `${blank} are twenty-five students in my class.`,
+    options: ["a)  There", "b)  It", "c)  We", "d)  They"],
+    answer: "a)  There",
+  },
+  {
+    question: `There's a table in the classroom but there aren't ${blank} computers.`,
+    options: ["a)  the", "b)  a", "c)  some", "d)  any"],
+    answer: "d)  any",
+  },
+  {
+    question: `My mother's got blue eyes but my ${blank} eyes are brown.`,
+    options: ["a)  fathers", "b)  father's", "c)  fathers'", "d)  father"],
+    answer: "b)  father's",
+  },
+  {
+    question: `${blank} you got any oranges?`,
+    options: ["a)  Do", "b)  Is", "c)  Have", "d)  Has"],
+    answer: "c)  Have",
+  },
+  {
+    question: `They speak French but they ${blank} speak Spanish.`,
+    options: ["a)  does", "b)  don't", "c)  do", "d)  doesn't"],
+    answer: "b)  don't",
+  },
+  {
+    question: `${blank} she play the piano?`,
+    options: ["a)  Does", "b)  Don't", "c)  Is", "d)  Do"],
+    answer: "a)  Does",
+  },
+  {
+    question: `I ${blank} to bed at 10 o'clock.`,
+    options: [
+      "a)  go usually",
+      "b)  go sometimes",
+      "c)  usually go",
+      "d)  go never",
+    ],
+    answer: "c)  usually go",
+  },
+  {
+    question: `We like her but she doesn't like ${blank}.`,
+    options: ["a)  I", "b)  us", "c)  they", "d)  she"],
+    answer: "b)  us",
+  },
+  {
+    question: `He ${blank} a red T-shirt today.`,
+    options: [
+      "a)  is wearing",
+      "b)  doesn't wear",
+      "c)  are wearing",
+      "d)  wears",
+    ],
+    answer: "a)  is wearing",
+  },
+  {
+    question: `There isn't ${blank} juice in the bottle.`,
+    options: ["a)  many", "b)  much", "c)  a lot of", "d)  a little"],
+    answer: "b)  much",
+  },
+  {
+    question: `My friend, Dan, ${blank} at school yesterday because he was ill.`,
+    options: ["a)  wasn't", "b)  isn't", "c)  were", "d)  weren't"],
+    answer: "a)  wasn't",
+  },
+  {
+    question: `Where ${blank} last Saturday?`,
+    options: [
+      "a)  you go",
+      "b)  do you go",
+      "c)  did you go",
+      "d)  does he go",
+    ],
+    answer: "c)  did you go",
+  },
+  {
+    question: `The plane is flying ${blank} the mountain.`,
+    options: ["a)  across", "b)  down", "c)  over", "d)  under"],
+    answer: "c)  over",
+  },
+  {
+    question: `He ${blank} the guitar very well.`,
+    options: ["a)  does", "b)  play", "c)  can", "d)  can play"],
+    answer: "d)  can play",
+  },
+  {
+    question: `We usually go to the cinema on Saturday but we ${blank} today.`,
+    options: [
+      "a)  aren't going",
+      "b)  doesn't go",
+      "c)  don't go",
+      "d)  isn't going",
+    ],
+    answer: "a)  aren't going",
+  },
+  {
+    question: `School starts ${blank} September 15th.`,
+    options: ["a)  on", "b)  at", "c)  in", "d)  the"],
+    answer: "a)  on",
+  },
+  {
+    question: `The boy is ${blank} the room.`,
+    options: ["a)  under", "b)  between", "c)  in", "d)  behind"],
+    answer: "c)  in",
+  },
+  {
+    question: `I ${blank} to Madrid last week.`,
+    options: ["a)  am not going", "b)  went", "c)  was", "d)  go"],
+    answer: "b)  went",
+  },
+  {
+    question: `His English is very good.  He speaks it very ${blank}.`,
+    options: ["a)  slowly", "b)  quickly", "c)  good", "d)  badly"],
+    answer: "b)  quickly",
+  },
+  {
+    question: `The TV is very loud, Jane.  ${blank} it down, please.`,
+    options: ["a)  Turn", "b)  Turning", "c)  Turned", "d)  Don't turn"],
+    answer: "a)  Turn",
+  },
+  {
+    question: `You ${blank} take your passport when you go to the USA.`,
+    options: ["a)  don't have to", "b)  should", "c)  mustn't", "d)  must"],
+    answer: "a)  don't have to",
+  },
+  {
+    question: `We ${blank} you next week.`,
+    options: ["a)  see", "b)  will see", "c)  to see", "d)  is seeing"],
+    answer: "b)  will see",
+  },
+  {
+    question: `It's not my jacket.  It's ${blank}.`,
+    options: ["a)  her", "b)  him", "c)  his", "d)  mine"],
+    answer: "c)  his",
   },
 ]
 
-export const QuickPlacement = [
+export const AdvancedPlacement = [
   {
     question: `I ${blank} from France.`,
     options: ["a)  is", "b)  are", "c)  am", "d)  be"],

@@ -22,7 +22,7 @@ const TestSelection = ({ setTest }) => {
   return (
     <div className={classes.container}>
       <Typography className={classes.head} variant="h5">
-        Please select the test you wish to take:
+        Please select the placement test you wish to take:
       </Typography>
       <Zoom timeout={1000} in>
         <Box>
@@ -34,27 +34,27 @@ const TestSelection = ({ setTest }) => {
             variant="contained"
             className={classes.m}
           >
-            Placement Test
+            App Testing
           </Button>
           <Button
             style={{
               background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
             }}
-            onClick={() => setTest("Section")}
+            onClick={() => setTest("Beginner")}
             variant="contained"
             className={classes.m}
           >
-            Section Test
+            Beginner
           </Button>
           <Button
             style={{
               background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
             }}
-            onClick={() => setTest("Quick-Placement")}
+            onClick={() => setTest("Advanced-Placement")}
             variant="contained"
             className={classes.m}
           >
-            Quick Placement
+            Beginner to Advanced
           </Button>
         </Box>
       </Zoom>
