@@ -15,47 +15,6 @@ import {
   Paper,
 } from "@material-ui/core"
 
-const StyledTableCell = withStyles((theme: Theme) =>
-  createStyles({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  })
-)(TableCell)
-
-const StyledTableRow = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  })
-)(TableRow)
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    margin: "3rem",
-    maxWidth: 600,
-    minWidth: 350,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  table: {
-    borderRadius: "10px",
-    maxWidth: 600,
-    minWidth: 350,
-  },
-  cell: {
-    fontStyle: "italic",
-  },
-}))
-
 const ScoreTable = ({ scores }) => {
   const classes = useStyles()
 
@@ -96,5 +55,48 @@ const ScoreTable = ({ scores }) => {
     </TableContainer>
   )
 }
+
+//Custom Styling
+
+const StyledTableCell = withStyles((theme: Theme) =>
+  createStyles({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  })
+)(TableCell)
+
+const StyledTableRow = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      "&:nth-of-type(odd)": {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  })
+)(TableRow)
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    margin: "3rem",
+    maxWidth: 600,
+    minWidth: 350,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  table: {
+    borderRadius: "10px",
+    maxWidth: 600,
+    minWidth: 350,
+  },
+  cell: {
+    fontStyle: "italic",
+  },
+}))
 
 export default ScoreTable

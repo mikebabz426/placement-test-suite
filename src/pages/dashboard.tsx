@@ -16,54 +16,7 @@ import Review from "../assets/review.svg"
 import { gql, useQuery, useMutation } from "@apollo/client"
 import ScoreTable from "../components/Dashboard/ScoreTable"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "3rem",
-    margin: "auto",
-  },
-  box: {
-    marginTop: 30,
-    minHeight: 300,
-    background: "rgba( 255, 255, 255, 0.45)",
-    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    backdropFilter: " blur( 10.0px )",
-    WebkitBackdropFilter: "blur(10.0px)",
-    borderRadius: "10px",
-    border: "1px solid rgba( 255, 255, 255, 0.18 )",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    textAlign: "center",
-    flexDirection: "column",
-  },
-  item: {
-    maxHeight: 500,
-    maxWidth: 350,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255,255,255, 0)",
-  },
-  icon: {
-    maxWidth: 150,
-    maxHeight: 150,
-  },
-  results: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  field: {
-    margin: ".5rem",
-  },
-  scoreField: {
-    margin: ".5rem .5rem .5rem 3rem",
-  },
-  link: {
-    textDecoration: "none",
-    color: "#333",
-  },
-}))
+//Clears all test submissions from database
 
 const CLEAR_TABLE = gql`
   mutation MyMutation {
@@ -72,6 +25,8 @@ const CLEAR_TABLE = gql`
     }
   }
 `
+
+//Retreives test submissions from database
 
 const GET_SCORES = gql`
   query test_scores {
@@ -144,5 +99,56 @@ const AdminPage = () => {
     </>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: "3rem",
+    margin: "auto",
+  },
+  box: {
+    marginTop: 30,
+    minHeight: 300,
+    background: "rgba( 255, 255, 255, 0.45)",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: " blur( 10.0px )",
+    WebkitBackdropFilter: "blur(10.0px)",
+    borderRadius: "10px",
+    border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    textAlign: "center",
+    flexDirection: "column",
+  },
+  item: {
+    maxHeight: 500,
+    maxWidth: 350,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(255,255,255, 0)",
+  },
+  icon: {
+    maxWidth: 150,
+    maxHeight: 150,
+  },
+  results: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  field: {
+    margin: ".5rem",
+  },
+  scoreField: {
+    margin: ".5rem .5rem .5rem 3rem",
+  },
+  link: {
+    textDecoration: "none",
+    color: "#333",
+  },
+}))
 
 export default AdminPage

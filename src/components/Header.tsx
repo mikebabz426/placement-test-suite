@@ -1,29 +1,7 @@
 import React from "react"
-import { Container, AppBar, Toolbar, Box, Typography } from "@material-ui/core"
+import { Container, AppBar, Toolbar, Box } from "@material-ui/core"
 import { Link } from "gatsby"
-import { makeStyles, fade } from "@material-ui/core/styles"
-import SearchIcon from "@material-ui/icons/Search"
-import InputBase from "@material-ui/core/InputBase"
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    justifyContent: "space-between",
-  },
-  container: {
-    display: "flex",
-    alignItems: "center",
-  },
-  navContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-
-  logoStyle: {
-    maxHeight: "40px",
-    maxWidth: "170px",
-  },
-}))
+import { makeStyles } from "@material-ui/core/styles"
 
 const Header = ({ logo }) => {
   const classes = useStyles()
@@ -51,5 +29,27 @@ const Header = ({ logo }) => {
     </AppBar>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    justifyContent: "space-between",
+  },
+  container: {
+    display: "flex",
+    alignItems: "center",
+  },
+  navContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  logoStyle: {
+    maxHeight: "40px",
+    maxWidth: "170px",
+  },
+}))
 
 export default Header

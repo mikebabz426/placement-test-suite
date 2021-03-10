@@ -9,6 +9,35 @@ import TestSelection from "../components/TestSelection"
 import Test from "../components/Tests/Test"
 import Logo from "../components/Logo"
 
+const TestingPage = () => {
+  const classes = useStyles()
+  const [testType, setTestType] = useState()
+
+  return (
+    <>
+      <Layout logo={false}>
+        <SEO title="Testing" />
+        <Container maxWidth="lg" className={classes.root}>
+          <Link to="/" className={classes.homeLink}>
+            <Logo />
+          </Link>
+          {testType ? (
+            <Box className={classes.testBox}>
+              <Test type={testType} />
+            </Box>
+          ) : (
+            <Box className={classes.box}>
+              <TestSelection setTest={setTestType} />
+            </Box>
+          )}
+        </Container>
+      </Layout>
+    </>
+  )
+}
+
+//Custom Styling
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "3rem",
@@ -55,32 +84,5 @@ const useStyles = makeStyles(theme => ({
     color: "#333",
   },
 }))
-
-const TestingPage = () => {
-  const classes = useStyles()
-  const [testType, setTestType] = useState()
-
-  return (
-    <>
-      <Layout logo={false}>
-        <SEO title="Log In" />
-        <Container maxWidth="lg" className={classes.root}>
-          <Link to="/" className={classes.homeLink}>
-            <Logo />
-          </Link>
-          {testType ? (
-            <Box className={classes.testBox}>
-              <Test type={testType} />
-            </Box>
-          ) : (
-            <Box className={classes.box}>
-              <TestSelection setTest={setTestType} />
-            </Box>
-          )}
-        </Container>
-      </Layout>
-    </>
-  )
-}
 
 export default TestingPage

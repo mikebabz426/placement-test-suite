@@ -2,21 +2,6 @@ import * as React from "react"
 import { Button, Typography, Zoom, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  m: {
-    margin: "1rem",
-    backgroundColor: "#ff9e80",
-  },
-  head: {
-    margin: "1rem",
-  },
-}))
-
 const TestSelection = ({ setTest }) => {
   const classes = useStyles()
   return (
@@ -26,7 +11,8 @@ const TestSelection = ({ setTest }) => {
       </Typography>
       <Zoom timeout={1000} in>
         <Box>
-          <Button
+          {/* For app testing purposes */}
+          {/* <Button
             style={{
               background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 80%)",
             }}
@@ -35,7 +21,7 @@ const TestSelection = ({ setTest }) => {
             className={classes.m}
           >
             App Testing
-          </Button>
+          </Button> */}
           <Button
             style={{
               background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
@@ -61,5 +47,22 @@ const TestSelection = ({ setTest }) => {
     </div>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  m: {
+    margin: "1rem",
+    backgroundColor: "#ff9e80",
+  },
+  head: {
+    margin: "1rem",
+  },
+}))
 
 export default TestSelection

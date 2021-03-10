@@ -4,18 +4,6 @@ import Image from "gatsby-image"
 import { Box, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    maxHeight: 80,
-    maxWidth: 200,
-  },
-  img: {
-    width: 80,
-    height: 80,
-  },
-}))
-
 const Logo = () => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
@@ -39,5 +27,19 @@ const Logo = () => {
     </Box>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    maxHeight: 80,
+    maxWidth: 200,
+  },
+  img: {
+    width: 80,
+    height: 80,
+  },
+}))
 
 export default Logo

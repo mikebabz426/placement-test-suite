@@ -8,53 +8,13 @@ import Student from "../assets/student.svg"
 import Teacher from "../assets/teacher.svg"
 import Logo from "../components/Logo"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "3rem",
-    margin: "auto",
-  },
-  link: {
-    textDecoration: "none",
-    color: "#333",
-    fontWeight: 600,
-  },
-  box: {
-    marginTop: 80,
-    minHeight: 300,
-    maxHeight: 500,
-    background: "rgba( 255, 255, 255, 0.45)",
-    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    backdropFilter: " blur( 10.0px )",
-    WebkitBackdropFilter: "blur(10.0px)",
-    borderRadius: "10px",
-    border: "1px solid rgba( 255, 255, 255, 0.18 )",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    textAlign: "center",
-  },
-  item: {
-    maxHeight: 500,
-    maxWidth: 350,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255,255,255, 0)",
-  },
-  student: {
-    maxWidth: 150,
-    maxHeight: 150,
-  },
-}))
-
 const IndexPage = () => {
   const classes = useStyles()
 
   return (
     <>
       <Layout logo={false}>
-        <SEO title="Log In" />
+        <SEO title="Home" />
         <Fade in timeout={700}>
           <Container maxWidth="lg" className={classes.root}>
             <Logo />
@@ -94,5 +54,47 @@ const IndexPage = () => {
     </>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: "3rem",
+    margin: "auto",
+  },
+  link: {
+    textDecoration: "none",
+    color: "#333",
+    fontWeight: 600,
+  },
+  box: {
+    marginTop: 80,
+    minHeight: 300,
+    maxHeight: 500,
+    background: "rgba( 255, 255, 255, 0.45)",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: " blur( 10.0px )",
+    WebkitBackdropFilter: "blur(10.0px)",
+    borderRadius: "10px",
+    border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    textAlign: "center",
+  },
+  item: {
+    maxHeight: 500,
+    maxWidth: 350,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(255,255,255, 0)",
+  },
+  student: {
+    maxWidth: 150,
+    maxHeight: 150,
+  },
+}))
 
 export default IndexPage

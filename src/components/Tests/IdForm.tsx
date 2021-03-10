@@ -12,33 +12,6 @@ let userSchema = Yup.object().shape({
   lastName: Yup.string().required().min(3),
 })
 
-//Custom Styles
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "1rem",
-    margin: "auto",
-  },
-  head: {
-    marginBottom: "3rem",
-  },
-  form: {
-    backgroundColor: "#f4f4f4",
-    padding: "3rem",
-    borderRadius: "10px",
-  },
-
-  field: {
-    color: theme.palette.grey[50],
-  },
-  btn: {
-    background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
-  },
-  input: {
-    margin: ".5rem auto",
-  },
-}))
-
 const IdForm = () => {
   const classes = useStyles()
   const [, setUser] = useNewUserContext()
@@ -116,5 +89,32 @@ const IdForm = () => {
     </Container>
   )
 }
+
+//Custom Styles
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: "1rem",
+    margin: "auto",
+  },
+  head: {
+    marginBottom: "3rem",
+  },
+  form: {
+    backgroundColor: "#f4f4f4",
+    padding: "3rem",
+    borderRadius: "10px",
+  },
+
+  field: {
+    color: theme.palette.grey[50],
+  },
+  btn: {
+    background: "linear-gradient(45deg, #f9c4ff 30%, #f289fe 90%)",
+  },
+  input: {
+    margin: ".5rem auto",
+  },
+}))
 
 export default IdForm

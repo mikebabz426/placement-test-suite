@@ -1,3 +1,5 @@
+//Given a score determines the level of english profficiency
+
 export const getLevel = (score: number) => {
   let level
 

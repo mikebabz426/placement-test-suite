@@ -1,6 +1,6 @@
 const blank = "__________"
 
-export const PlacementTestOne = [
+export const TestingPurposes = [
   {
     question: "What is the ultimate dog breed?",
     options: ["Yorkie", "German Shepherd", "Huskie", "Beagle"],

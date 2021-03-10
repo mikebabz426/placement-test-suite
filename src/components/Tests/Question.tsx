@@ -14,6 +14,8 @@ import { gql, useMutation } from "@apollo/client"
 import { useNewUserContext } from "../../UserContext"
 import { getLevel } from "../../services/helpers"
 
+//Mutation for submitting test results to database
+
 const ADD_COMPLETED = gql`
   mutation MyMutation(
     $firstName: String!
@@ -35,22 +37,6 @@ const ADD_COMPLETED = gql`
     }
   }
 `
-
-const useStyles = makeStyles(theme => ({
-  box: {
-    backgroundColor: "#f6f6f6",
-    padding: "3rem",
-    borderRadius: "10px",
-  },
-  btn: {
-    background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
-    marginTop: "1.5rem",
-  },
-  question: {
-    marginBottom: "1.5rem",
-    marginTop: "1.5rem",
-  },
-}))
 
 const Question = ({
   ele,
@@ -74,12 +60,16 @@ const Question = ({
   }
 
   const nextQuestion = que => {
+    //If you are at the last question of the test, send test results to database
+
     if (counter + 1 === test.length) {
       if (value === que.answer) {
         setCorrect(correct + 1)
       }
       setUser(prevState => ({ ...prevState, score: score }))
-      const level = getLevel(correct)
+
+      let level
+      type === "Beginner" ? (level = "Beginner") : getLevel(correct)
 
       addCompleted({
         variables: {
@@ -144,5 +134,23 @@ const Question = ({
     </Fade>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  box: {
+    backgroundColor: "#f6f6f6",
+    padding: "3rem",
+    borderRadius: "10px",
+  },
+  btn: {
+    background: "linear-gradient(45deg, #f9c4ff 40%, #f289fe 90%)",
+    marginTop: "1.5rem",
+  },
+  question: {
+    marginBottom: "1.5rem",
+    marginTop: "1.5rem",
+  },
+}))
 
 export default Question

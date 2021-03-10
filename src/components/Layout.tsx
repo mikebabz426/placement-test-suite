@@ -7,14 +7,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import BackgroundImage from "gatsby-background-image"
 import { useStaticQuery, graphql } from "gatsby"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: 0,
-    margin: 0,
-    width: "100vw",
-    minHeight: "100vh",
-  },
-}))
 const Layout = ({ children, logo }) => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
@@ -41,6 +33,17 @@ const Layout = ({ children, logo }) => {
     </GlobalThemeProvider>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: 0,
+    margin: 0,
+    width: "100vw",
+    minHeight: "100vh",
+  },
+}))
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

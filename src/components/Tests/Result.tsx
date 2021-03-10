@@ -3,28 +3,6 @@ import { Box, Button, Typography, Grow } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "3rem",
-    margin: "10rem auto",
-  },
-
-  link: {
-    textDecoration: "none",
-    color: "#333",
-    fontWeight: 600,
-  },
-  msg: {
-    marginBottom: "1.5rem",
-    textAlign: "center",
-  },
-  box: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-}))
 const Result = ({ score }) => {
   const classes = useStyles()
 
@@ -48,5 +26,25 @@ const Result = ({ score }) => {
     </Grow>
   )
 }
+
+//Custom Styling
+
+const useStyles = makeStyles(theme => ({
+  link: {
+    textDecoration: "none",
+    color: "#333",
+    fontWeight: 600,
+  },
+  msg: {
+    marginBottom: "1.5rem",
+    textAlign: "center",
+  },
+  box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+}))
 
 export default Result
