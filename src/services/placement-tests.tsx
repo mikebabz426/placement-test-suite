@@ -1,22 +1,22 @@
 const blank = "__________"
 
-export const TestingPurposes = [
-  {
-    question: "What is the ultimate dog breed?",
-    options: ["Yorkie", "German Shepherd", "Huskie", "Beagle"],
-    answer: "Yorkie",
-  },
-  {
-    question: "How cool is a Yorkie?",
-    options: ["Cooler than cool", "Mostly Cool", "Above average", "Not at all"],
-    answer: "Cooler than cool",
-  },
-  {
-    question: "How much maintenance does a Yorkie require?",
-    options: ["Plenty of it", "Not a lot", "More than a Kardashian", "Some"],
-    answer: "Not a lot",
-  },
-]
+// export const TestingPurposes = [
+//   {
+//     question: "What is the ultimate dog breed?",
+//     options: ["Yorkie", "German Shepherd", "Huskie", "Beagle"],
+//     answer: "Yorkie",
+//   },
+//   {
+//     question: "How cool is a Yorkie?",
+//     options: ["Cooler than cool", "Mostly Cool", "Above average", "Not at all"],
+//     answer: "Cooler than cool",
+//   },
+//   {
+//     question: "How much maintenance does a Yorkie require?",
+//     options: ["Plenty of it", "Not a lot", "More than a Kardashian", "Some"],
+//     answer: "Not a lot",
+//   },
+// ]
 export const Beginner = [
   {
     question: `Mitko ${blank} from Bulgaria.`,

@@ -69,7 +69,9 @@ const Question = ({
       setUser(prevState => ({ ...prevState, score: score }))
 
       let level
-      type === "Beginner" ? (level = "Beginner") : getLevel(correct)
+      type === "Beginner" ? (level = "Beginner") : (level = getLevel(correct))
+
+      console.log(level)
 
       addCompleted({
         variables: {

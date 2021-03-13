@@ -2,11 +2,7 @@ import * as React from "react"
 import { useState } from "react"
 import { useNewUserContext } from "../../UserContext"
 import { Container, Fade } from "@material-ui/core"
-import {
-  Beginner,
-  AdvancedPlacement,
-  TestingPurposes,
-} from "../../services/placement-tests"
+import { Beginner, AdvancedPlacement } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
 import IdForm from "./IdForm"
@@ -17,9 +13,10 @@ const Test = ({ type }) => {
   const [correct, setCorrect] = useState(0)
 
   let test
-  if (type === "Placement") {
-    test = TestingPurposes
-  } else if (type === "Advanced-Placement") {
+  // if (type === "Placement") {
+  //   test = TestingPurposes
+  // } else
+  if (type === "Advanced-Placement") {
     test = AdvancedPlacement
   } else {
     test = Beginner
