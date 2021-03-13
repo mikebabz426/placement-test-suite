@@ -2,69 +2,28 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
-import {
-  Container,
-  Box,
-  Typography,
-  CircularProgress,
-  Fade,
-  Button,
-} from "@material-ui/core"
+import { Container, Box, Typography, Fade, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import { useAuth0 } from "@auth0/auth0-react"
+import Admin from "../components/Dashboard/Admin"
+import LoginButton from "../components/LoginButton"
 import Logo from "../components/Logo"
-import Review from "../assets/review.svg"
-import { gql, useQuery, useMutation } from "@apollo/client"
-import ScoreTable from "../components/Dashboard/ScoreTable"
 
-//Clears all test submissions from database
-
-const CLEAR_TABLE = gql`
-  mutation MyMutation {
-    delete_test_scores(where: {}) {
-      affected_rows
-    }
-  }
-`
-
-//Retreives test submissions from database
-
-const GET_SCORES = gql`
-  query test_scores {
-    test_scores {
-      id
-      firstName
-      lastName
-      score
-      testType
-      level
-    }
-  }
-`
 const AdminPage = () => {
-  const { loading, error, data, refetch } = useQuery(GET_SCORES)
   const classes = useStyles()
-  const [clearTable] = useMutation(CLEAR_TABLE)
+  const { isLoading, isAuthenticated, error, user } = useAuth0()
 
-  if (loading)
-    return (
-      <Container
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <CircularProgress color="primary" size={60} thickness={4} />
-      </Container>
-    )
-  if (error) return "Ooops, there was an Error!"
+  isLoading ? (
+    <Box>
+      <Typography>Loading...</Typography>
+    </Box>
+  ) : null
 
-  const handleClick = () => {
-    clearTable()
-    refetch()
-  }
-
-  const scores = data.test_scores
+  error ? (
+    <Box>
+      <Typography>Error: {error.message}</Typography>
+    </Box>
+  ) : null
 
   return (
     <>
@@ -75,24 +34,14 @@ const AdminPage = () => {
             <Link to="/" className={classes.link}>
               <Logo />
             </Link>
-            <Box className={classes.box}>
-              <Box className={classes.item}>
-                <Review className={classes.icon} />
-                <Typography variant="h4">Test Score Review</Typography>
+            {isAuthenticated && user.email === "desislavadekova@yahoo.com" ? (
+              <Admin />
+            ) : (
+              <Box className={classes.box}>
+                <Typography>To view this page, please log in!</Typography>
+                <LoginButton>Log In</LoginButton>
               </Box>
-              <ScoreTable scores={scores} />
-              <Button
-                variant="contained"
-                style={{
-                  background:
-                    "linear-gradient(45deg, #f9c4ff 20%, #f289fe 80%)",
-                  margin: "2rem",
-                }}
-                onClick={handleClick}
-              >
-                Clear Table
-              </Button>
-            </Box>
+            )}
           </Container>
         </Fade>
       </Layout>
@@ -121,29 +70,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-evenly",
     textAlign: "center",
     flexDirection: "column",
-  },
-  item: {
-    maxHeight: 500,
-    maxWidth: 350,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255,255,255, 0)",
-  },
-  icon: {
-    maxWidth: 150,
-    maxHeight: 150,
-  },
-  results: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  field: {
-    margin: ".5rem",
-  },
-  scoreField: {
-    margin: ".5rem .5rem .5rem 3rem",
   },
   link: {
     textDecoration: "none",
