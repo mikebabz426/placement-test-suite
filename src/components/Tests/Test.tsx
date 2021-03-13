@@ -3,9 +3,9 @@ import { useState } from "react"
 import { useNewUserContext } from "../../UserContext"
 import { Container, Fade } from "@material-ui/core"
 import {
-  PlacementTestOne,
   Beginner,
   AdvancedPlacement,
+  TestingPurposes,
 } from "../../services/placement-tests"
 import Question from "./Question"
 import Result from "./Result"
@@ -18,7 +18,7 @@ const Test = ({ type }) => {
 
   let test
   if (type === "Placement") {
-    test = PlacementTestOne
+    test = TestingPurposes
   } else if (type === "Advanced-Placement") {
     test = AdvancedPlacement
   } else {

@@ -2,11 +2,12 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
-import { Container, Box, Typography, Fade, Button } from "@material-ui/core"
+import { Container, Box, Typography, Fade } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useAuth0 } from "@auth0/auth0-react"
 import Admin from "../components/Dashboard/Admin"
 import LoginButton from "../components/LoginButton"
+import LogoutButton from "../components/LogoutButton"
 import Logo from "../components/Logo"
 
 const AdminPage = () => {
@@ -35,10 +36,14 @@ const AdminPage = () => {
               <Logo />
             </Link>
             {isAuthenticated && user.email === "desislavadekova@yahoo.com" ? (
-              <Admin />
+              <>
+                <Admin name={user.name} />
+              </>
             ) : (
               <Box className={classes.box}>
-                <Typography>To view this page, please log in!</Typography>
+                <Typography>
+                  To view this page, please log in with the correct account!
+                </Typography>
                 <LoginButton>Log In</LoginButton>
               </Box>
             )}

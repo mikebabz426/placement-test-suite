@@ -9,6 +9,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles"
 import { gql, useQuery, useMutation } from "@apollo/client"
 import ScoreTable from "./ScoreTable"
+import AdminHeader from "../AdminHeader"
 import Review from "../../assets/review.svg"
 
 //Clears all test submissions from database
@@ -36,7 +37,7 @@ const GET_SCORES = gql`
   }
 `
 
-const Admin = () => {
+const Admin = ({ name }) => {
   const { loading, error, data, refetch } = useQuery(GET_SCORES)
   const classes = useStyles()
   const [clearTable] = useMutation(CLEAR_TABLE)
@@ -65,6 +66,7 @@ const Admin = () => {
 
   return (
     <Box className={classes.box}>
+      <AdminHeader name={name} />
       <Box className={classes.item}>
         <Review className={classes.icon} />
         <Typography variant="h4">Test Score Review</Typography>
