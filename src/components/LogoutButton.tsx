@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: "#e57373",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "10px",
+    },
   },
 }))
 

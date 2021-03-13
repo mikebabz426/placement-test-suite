@@ -40,10 +40,8 @@ const TestingPage = () => {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "3rem",
     margin: "auto",
   },
-
   link: {
     textDecoration: "none",
     color: "#333",
@@ -52,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   box: {
     marginTop: 80,
     minHeight: 300,
-    maxHeight: 500,
+    maxHeight: 600,
     padding: 50,
     background: "rgba( 255, 255, 255, 0.45)",
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
@@ -67,7 +65,8 @@ const useStyles = makeStyles(theme => ({
   testBox: {
     marginTop: 80,
     minHeight: 300,
-    maxHeight: 500,
+    maxHeight: 600,
+    minWidth: 350,
     padding: 20,
     background: "rgba( 255, 255, 255, 0.45)",
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
@@ -78,6 +77,11 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem",
+      maxWidth: 350,
+      margin: " 1rem auto",
+    },
   },
   homeLink: {
     textDecoration: "none",

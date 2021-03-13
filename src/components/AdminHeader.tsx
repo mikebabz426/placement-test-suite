@@ -7,7 +7,7 @@ const AdminHeader = ({ name }) => {
   const classes = useStyles()
   return (
     <Container maxWidth="lg" className={classes.container}>
-      <Typography className={classes.welcome} variant="h6">
+      <Typography className={classes.welcome} variant="body1">
         Welcome, {name}!
       </Typography>
       <LogoutButton />

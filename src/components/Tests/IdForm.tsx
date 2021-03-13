@@ -17,7 +17,7 @@ const IdForm = () => {
   const [, setUser] = useNewUserContext()
 
   return (
-    <Container>
+    <Container className={classes.root}>
       <Formik
         initialValues={{ firstName: "", lastName: "" }}
         validationSchema={userSchema}
@@ -94,7 +94,6 @@ const IdForm = () => {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "1rem",
     margin: "auto",
   },
   head: {
@@ -102,8 +101,12 @@ const useStyles = makeStyles(theme => ({
   },
   form: {
     backgroundColor: "#f4f4f4",
+    minWidth: 200,
     padding: "3rem",
     borderRadius: "10px",
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem",
+    },
   },
 
   field: {

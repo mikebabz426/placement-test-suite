@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import { useAuth0 } from "@auth0/auth0-react"
 import Admin from "../components/Dashboard/Admin"
 import LoginButton from "../components/LoginButton"
-import LogoutButton from "../components/LogoutButton"
 import Logo from "../components/Logo"
 
 const AdminPage = () => {
@@ -59,7 +58,6 @@ const AdminPage = () => {
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "3rem",
-    margin: "auto",
   },
   box: {
     marginTop: 30,

@@ -60,7 +60,7 @@ const IndexPage = () => {
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "3rem",
-    margin: "auto",
+    minHeight: 900,
   },
   link: {
     textDecoration: "none",
@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
   box: {
     marginTop: 80,
     minHeight: 300,
-    maxHeight: 500,
+    maxHeight: 900,
     background: "rgba( 255, 255, 255, 0.45)",
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
     backdropFilter: " blur( 10.0px )",
@@ -81,8 +81,13 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "space-evenly",
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      justifyContent: "space-around",
+    },
   },
   item: {
+    margin: "2rem",
     maxHeight: 500,
     maxWidth: 350,
     display: "flex",

@@ -150,6 +150,9 @@ const useStyles = makeStyles(theme => ({
   question: {
     marginBottom: "1.5rem",
     marginTop: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+    },
   },
 }))
 

@@ -10,7 +10,7 @@ const TestSelection = ({ setTest }) => {
         Please select the placement test you wish to take:
       </Typography>
       <Zoom timeout={1000} in>
-        <Box>
+        <Box className={classes.box}>
           {/* For app testing purposes */}
           {/* <Button
             style={{
@@ -56,12 +56,26 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
+  },
   m: {
     margin: "1rem",
     backgroundColor: "#ff9e80",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "12px",
+    },
   },
   head: {
     margin: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "18px",
+    },
   },
 }))
 
